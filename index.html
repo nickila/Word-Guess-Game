@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+    <title>HANGMAN</title>
+</head>
+
+
+<body>
+
+    <ul id="wrongBoxL">
+        
+    </ul>
+    <div>
+
+        <h1 id="title">HANGMAN</h1>
+        <p id="message"></p>
+
+        <br />
+        <br />
+        <div id="spanString">
+            <span id="letter0"></span>
+            <span id="letter1"></span>
+            <span id="letter2"></span>
+            <span id="letter3"></span>
+            <span id="letter4"></span>
+            <span id="letter5"></span>
+        </div>
+    </div>
+    <div id="wrongBoxR">
+        &nbsp;
+    </div>
+
+
+
+
+
+    <!--<button onclick="myFunction()">Try it</button>-->
+    <script type="text/javascript">
+
+
+        //var alphabet = "abcdefghijklmnopqrstuvwxyz"
+        //var ifLetter = alphabet.charAt(9);
+        //console.log(ifLetter);
+        //var letterX = 
+        //set vars
+        var guesses = 10;
+
+        //1. Create an array for computer list of words.
+        var wordList = ["frog", "moth", "table", "minute", "locker", "planet"];
+
+        //2. Randomly choose one of those words.
+        var randomWord = wordList[Math.floor(Math.random() * wordList.length)];
+        console.log(randomWord);
+        //3. Put that random word into a new string. (not needed)
+
+        var wordLetter0 = randomWord.charAt(0);
+        var wordLetter1 = randomWord.charAt(1);
+        var wordLetter2 = randomWord.charAt(2);
+        var wordLetter3 = randomWord.charAt(3);
+        var wordLetter4 = randomWord.charAt(4);
+        var wordLetter5 = randomWord.charAt(5);
+
+        var wordLength = randomWord.length;
+        console.log(wordLength);
+
+        //var dash = " _ ";
+        //console.log
+
+        //4. Tell player to choose a letter.
+
+        var html =
+            "<p>Guess a letter...</p>";
+        //"<p>" + (" a " * randomWord.length) + "</p>";
+        document.getElementById("message").innerHTML = html;
+        //5. Display an empty underline dash for each letter where the letters will be in html.
+        // var html =
+        //(dash.repeat(randomWord.length));
+        //document.getElementById("dashes").innerHTML = html;
+
+
+        /*function myFunction() {
+        var x = document.createElement("SPAN");
+        var t = document.createTextNode(" _ ");
+        x.appendChild(t);
+        document.body.appendChild(x);
+    }*/
+
+        //for (var i=0; i < wordLength; i++) {}
+
+        if (wordLength === 6) {
+            document.getElementById("letter0").innerHTML = "<u>&nbsp;</u>";
+            document.getElementById("letter1").innerHTML = "<u>&nbsp;</u>";
+            document.getElementById("letter2").innerHTML = "<u>&nbsp;</u>";
+            document.getElementById("letter3").innerHTML = "<u>&nbsp;</u>";
+            document.getElementById("letter4").innerHTML = "<u>&nbsp;</u>";
+            document.getElementById("letter5").innerHTML = "<u>&nbsp;</u>";
+        } else if (wordLength === 5) {
+            document.getElementById("letter0").innerHTML = "<u>&nbsp;</u>";
+            document.getElementById("letter1").innerHTML = "<u>&nbsp;</u>";
+            document.getElementById("letter2").innerHTML = "<u>&nbsp;</u>";
+            document.getElementById("letter3").innerHTML = "<u>&nbsp;</u>";
+            document.getElementById("letter4").innerHTML = "<u>&nbsp;</u>";
+        } else if (wordLength === 4) {
+            document.getElementById("letter0").innerHTML = "<u>&nbsp;</u>";
+            document.getElementById("letter1").innerHTML = "<u>&nbsp;</u>";
+            document.getElementById("letter2").innerHTML = "<u>&nbsp;</u>";
+            document.getElementById("letter3").innerHTML = "<u>&nbsp;</u>";
+
+        }
+
+
+
+        //6. User clicks a letter. If that letter is the same as any of the letters in the string of the computer's random word...
+        document.onkeypress = function (event) {
+            var userGuess = event.key;
+            console.log(userGuess);
+            //var letter = (userGuess);
+
+            var alphabet = "abcdefghijklmnopqrstuvwxyz";
+            var checkLetter = alphabet.search(userGuess);
+            console.log(checkLetter);
+
+
+            if (guesses === 0) {
+                return;
+            }
+            if (userGuess === wordLetter0) {
+
+                document.getElementById("letter0").innerHTML = userGuess;
+                document.getElementById("message").innerHTML = "There you go..."
+                document.getElementById("letter0").style.color = "turquoise";
+            }
+            if (userGuess === wordLetter1) {
+
+                document.getElementById("letter1").innerHTML = userGuess;
+                document.getElementById("message").innerHTML = "Now you're getting it..."
+                document.getElementById("letter1").style.color = "turquoise";
+            }
+            if (userGuess === wordLetter2) {
+
+                document.getElementById("letter2").innerHTML = userGuess;
+                document.getElementById("message").innerHTML = "That one was tuff..."
+                document.getElementById("letter2").style.color = "turquoise";
+            }
+            if (userGuess === wordLetter3) {
+
+                document.getElementById("letter3").innerHTML = userGuess;
+                document.getElementById("message").innerHTML = "You're doing it..."
+                document.getElementById("letter3").style.color = "turquoise";
+            }
+            if (userGuess === wordLetter4) {
+
+                document.getElementById("letter4").innerHTML = userGuess;
+                document.getElementById("message").innerHTML = "Way to go..."
+                document.getElementById("letter4").style.color = "turquoise";
+            }
+            if (userGuess === wordLetter5) {
+
+                document.getElementById("letter5").innerHTML = userGuess;
+                document.getElementById("message").innerHTML = "Woah! Slow down..."
+                document.getElementById("letter5").style.color = "turquoise";
+            }
+            if ((checkLetter >= 0 && checkLetter < alphabet.length) && (userGuess !== wordLetter0) && (userGuess !== wordLetter1) && (userGuess !== wordLetter2) && (userGuess !== wordLetter3) && (userGuess !== wordLetter4) && (userGuess !== wordLetter5)) {
+
+                //function myFunction() 
+
+                /*var str1 = "";
+                var str2 = userGuess;
+                var res = str1.concat(str2);
+                document.getElementById("wrongBoxL").innerHTML = res;*/
+
+                var node = document.createElement("LI");                 // Create a <li> node
+                var textnode = document.createTextNode(userGuess);         // Create a text node
+                node.appendChild(textnode);                              // Append the text to <li>
+                document.getElementById("wrongBoxL").appendChild(node);     // Append <li> to <ul> with id="myList"
+
+                /* function myFunction() {
+                     var node = document.createElement("LI");
+                     var textnode = document.createTextNode("cake");
+                     node.appendChild(textnode);
+                     document.getElementById("wrongBoxL").appendChild(node);
+                 }*/
+
+
+
+
+
+
+                //    document.getElementById("wrongBoxL").innerHTML = userGuess;
+                guesses--;
+
+                if (guesses === 0) {
+                    document.getElementById("title").innerHTML = "GAME OVER";
+                    document.getElementById("message").innerHTML = "You lost...";
+                    document.getElementById("spanString").innerHTML = wordLetter0 + " " + wordLetter1 + " " + wordLetter2 + " " + wordLetter3 + " " + wordLetter4 + " " + wordLetter5;
+                    document.getElementById("spanString").style.color = "turquoise";
+                    return;
+                }
+            }
+
+        }
+
+
+
+
+        //7. ...Enter that letter in the position in which it can be found in the original word.
+
+        //7. If that letter is not in that string, place it into another div that shows wrong letters.
+
+
+        //8. Also, if letter does not equal any from the string, minus one point (or add a mark).
+
+
+        //9. After 6 wrong guesses, player loses. Reveal word and 'Game Over'.
+
+
+        //10. Reset button chooses new word and resets everything back to beginning.
+
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>

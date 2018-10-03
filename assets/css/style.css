@@ -1,0 +1,67 @@
+body {
+    font-family: monospace;
+    background-color: black;
+    color: yellow;
+    text-align: center;
+
+}
+
+
+p {
+    font-size: 40px;
+    color: pink;
+    margin-top: 0;
+}
+
+#title {
+    font-size: 160px;
+    margin-bottom: 0;
+    color: lime;
+    letter-spacing: 3px;
+    margin-top: 50px;
+}
+
+
+#spanString {
+    font-size: 100px;
+    margin-top: 200px;
+    
+}
+
+#wrongBoxL {
+    position: absolute;
+    left: 40px;
+    top: 50px;
+    font-size: 60px;
+    width: 100px;
+    height: 620px;
+    border: 10px solid white;
+    border-radius: 10px;
+    float: left;
+   
+    
+    text-align: center;
+    
+}
+
+#wrongBoxR {
+    position: absolute;
+    right: 40px;
+    top: 50px;
+    width: 100px;
+    height: 620px;
+    border: 10px solid white;
+    border-radius: 10px;
+    float: left;
+    
+    
+    text-align: center;
+    
+}
+#message {
+    margin-top: 20px;
+}
+
+button {
+    background-color: white;
+}
