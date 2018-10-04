@@ -9,7 +9,7 @@ body {
 
 p {
     font-size: 40px;
-    color: pink;
+    color: rgb(204, 255, 251);
     margin-top: 0;
 }
 
@@ -60,8 +60,21 @@ p {
 }
 #message {
     margin-top: 20px;
+    
+    margin-bottom: 10px;
 }
 
 button {
     background-color: white;
+}
+#guesses {
+    color: rgb(255, 160, 207);
+}
+#wins {
+    color: rgb(255, 160, 207);
+    font-size: 25px;
+}
+#losses {
+    color: rgb(255, 160, 207);
+    font-size: 25px;
 }
