@@ -11,7 +11,7 @@ var wins = 0;
 
 //1. Create an array for computer list of words.
 var wordList = ["frog", "moth", "table", "house", "locker", "planet", "snow", "hammer", "banana",
-    "camera", "tooth", "broom", "pencil", "candle", "shovel", "moon", "garage", "people", "kitten", "cereal", ""];
+    "camera", "tooth", "broom", "pencil", "candle", "shovel", "moon", "garage", "people", "kitten", "cereal"];
 
 //2. Randomly choose one of those words.
 var randomWord = wordList[Math.floor(Math.random() * wordList.length)];
@@ -148,7 +148,11 @@ document.onkeypress = function (event) {
         document.getElementById("message").innerHTML = "YOU WIN!!!";
         console.log("you win!!!!!");
         wins++;
-        document.getElementById("wins").innerHTML = "WIN: "+ wins;
+        if (wins < 9) {
+        document.getElementById("wins").innerHTML = "WIN:0" + wins;
+        } else {
+            document.getElementById("wins").innerHTML = "WIN:" + wins;
+        }
         return;
 
 
