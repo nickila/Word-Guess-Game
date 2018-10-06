@@ -8,6 +8,7 @@ var guesses = 10;
 var losses = 0;
 var wins = 0;
 var strL = "";
+var groupedLetters = "";
 
 function clearBox() {
 document.getElementById("wrongBoxL").innerHTML = "";
@@ -26,6 +27,7 @@ document.getElementById("letter2").style.color = "yellow";
 document.getElementById("letter3").style.color = "yellow";
 document.getElementById("letter4").style.color = "yellow";
 document.getElementById("letter5").style.color = "yellow";
+document.getElementById("spanString").style.marginTop = "200px";
 }
 
 function clearMessage2(){
@@ -52,10 +54,13 @@ wordGame();
 
 
 
-function wordGame() {  
+function wordGame() { 
+    guesses=10; 
     clearSpan();
     clearBox();
     clearMessage2();
+    document.getElementById("guesses").innerHTML = "GUESS: " + guesses;
+    
   
 //2. Randomly choose one of those words.
 //function hangman() {
@@ -116,7 +121,8 @@ function wordGame() {
         var userGuess = event.key;
         var userGuess = (userGuess.toLowerCase());
         console.log(userGuess);
-        groupedLetters = strL.concat(userGuess);
+        groupedLetters = groupedLetters + userGuess;
+
         console.log("GL" + groupedLetters);
         //var letter = (userGuess);
 
@@ -196,6 +202,7 @@ function wordGame() {
             
             
             
+            
 
             //document.getElementById('endereco').onkeydown = function(event) {
                // if (event.keyCode == 13) {
@@ -231,7 +238,9 @@ function wordGame() {
             && (userGuess !== wordLetter3)
             && (userGuess !== wordLetter4)
             && (userGuess !== wordLetter5)
-            && (userGuess !== "wrongBoxL LI")
+            //&& (userGuess !== groupedLetters)
+            && (userGuess !== groupedLetters.indexOf())
+            //&& (userGuess !== "wrongBoxL LI")
             && (userGuess != str1)){
             // Div containing what happens when a wrong choice is submitted.
             var usedLetter = str1.concat(userGuess);
@@ -246,18 +255,29 @@ function wordGame() {
             guesses--;
             //var str = document.getElementById("wordBoxL").innerHTML();
             //console.log(str);
-            
+            //put wrong letters into span
             //9. After 6 wrong guesses, player loses. Reveal word and 'Game Over'.
             if (guesses === 0) {
                 document.getElementById("title").innerHTML = "GAME OVER";
                 document.getElementById("message").innerHTML = "You lost...";
-                document.getElementById("spanString").innerHTML = wordLetter0 + " " + wordLetter1 + " " + wordLetter2 + " " + wordLetter3 + " " + wordLetter4 + " " + wordLetter5;
+                document.getElementById("letter0").innerHTML = wordLetter0;
+                document.getElementById("letter1").innerHTML = wordLetter1;
+                document.getElementById("letter2").innerHTML = wordLetter2;
+                document.getElementById("letter3").innerHTML = wordLetter3;
+                document.getElementById("letter4").innerHTML = wordLetter4;
+                document.getElementById("letter5").innerHTML = wordLetter5;
+                // document.getElementById("spanString").innerHTML = wordLetter0 + " " + wordLetter1 + " " + wordLetter2 + " " + wordLetter3 + " " + wordLetter4 + " " + wordLetter5;
                 document.getElementById("spanString").style.color = "turquoise";
                 losses++;
-                document.getElementById("losses").innerHTML = " LOSS: " + losses;
+                if (losses < 10) {
+                document.getElementById("losses").innerHTML = " LOSS:0" + losses;
+
+                } else { document.getElementById("losses").innerHTML = " LOSS:" + losses;
+            }
                 document.getElementById("message2").innerHTML = "Click here to play again...";
                 document.getElementById("spanString").style.marginTop = "160px";
                 
+                // wordGame()
                 return;
                 
             }
