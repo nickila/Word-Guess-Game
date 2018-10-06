@@ -9,6 +9,29 @@ var losses = 0;
 var wins = 0;
 var strL = "";
 
+function clearBox() {
+document.getElementById("wrongBoxL").innerHTML = "";
+
+}
+function clearSpan(){
+document.getElementById("letter0").innerHTML = "";
+document.getElementById("letter1").innerHTML = "";
+document.getElementById("letter2").innerHTML = "";
+document.getElementById("letter3").innerHTML = "";
+document.getElementById("letter4").innerHTML = "";
+document.getElementById("letter5").innerHTML = "";
+document.getElementById("letter0").style.color = "yellow";
+document.getElementById("letter1").style.color = "yellow";
+document.getElementById("letter2").style.color = "yellow";
+document.getElementById("letter3").style.color = "yellow";
+document.getElementById("letter4").style.color = "yellow";
+document.getElementById("letter5").style.color = "yellow";
+}
+
+function clearMessage2(){
+    document.getElementById("message2").innerHTML = "";
+}
+
 
 // function myFunction() {
 //     document.getElementById("message").innerHTML = "PLAY AGAIN";
@@ -27,7 +50,13 @@ var wordList = ["frog", "moth", "table", "house", "locker", "planet", "snow", "h
 
 wordGame();
 
-function wordGame() {    
+
+
+function wordGame() {  
+    clearSpan();
+    clearBox();
+    clearMessage2();
+  
 //2. Randomly choose one of those words.
 //function hangman() {
     var randomWord = wordList[Math.floor(Math.random() * wordList.length)];
@@ -161,7 +190,13 @@ function wordGame() {
             } else {
                 document.getElementById("wins").innerHTML = "WIN:" + wins;
             }
-            //document.getElementById("message2").innerHTML = "Press any button to play again...";
+
+            document.getElementById("message2").innerHTML = "Click here to play again...";
+            document.getElementById("spanString").style.marginTop = "160px";
+            
+            
+            
+
             //document.getElementById('endereco').onkeydown = function(event) {
                // if (event.keyCode == 13) {
                  //   myGame()
@@ -177,6 +212,14 @@ function wordGame() {
         //to be sure it's not in that string before it gets marked against the player. So str1 will be the 
         //string of letters used. They will be concat'ed in 
         var str1 = "";
+
+        //     this might work
+        //     function myFunction() {
+        //     var str = "The best things in life are free";
+        //     var patt = new RegExp("e");
+        //     var res = patt.test(str);
+        //     document.getElementById("demo").innerHTML = res;
+       // }
         
         
 
@@ -188,6 +231,7 @@ function wordGame() {
             && (userGuess !== wordLetter3)
             && (userGuess !== wordLetter4)
             && (userGuess !== wordLetter5)
+            && (userGuess !== "wrongBoxL LI")
             && (userGuess != str1)){
             // Div containing what happens when a wrong choice is submitted.
             var usedLetter = str1.concat(userGuess);
@@ -211,7 +255,11 @@ function wordGame() {
                 document.getElementById("spanString").style.color = "turquoise";
                 losses++;
                 document.getElementById("losses").innerHTML = " LOSS: " + losses;
+                document.getElementById("message2").innerHTML = "Click here to play again...";
+                document.getElementById("spanString").style.marginTop = "160px";
+                
                 return;
+                
             }
         }
 
