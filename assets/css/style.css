@@ -3,9 +3,7 @@ body {
     background-color: black;
     color: yellow;
     text-align: center;
-
 }
-
 
 p {
     font-size: 40px;
@@ -21,11 +19,9 @@ p {
     margin-top: 20px;
 }
 
-
 #spanString {
     font-size: 150px;
-    margin-top: 200px;
-    
+    margin-top: 200px;    
 }
 
 #wrongBoxL {
@@ -38,10 +34,7 @@ p {
     border: 10px solid white;
     border-radius: 10px;
     float: left;
-   
-    
     text-align: center;
-    
 }
 
 #wrongBoxR {
@@ -53,26 +46,25 @@ p {
     border: 10px solid white;
     border-radius: 10px;
     float: left;
-    
-    
     text-align: center;
-    
 }
+
 #message {
     margin-top: 5px;
     font-size: 70px;
     margin-bottom: 15px;
     color: rgb(160, 252, 255);
 }
+
 #message2 {
     color: white;
 }
-
 
 #guesses {
     font-size: 60px;
     color: rgb(255, 160, 207);
 }
+
 #wins {
     color: white;
     font-size: 60px;
@@ -81,9 +73,9 @@ p {
     padding-top: 10px;
     padding-bottom: 10px;
     margin-bottom: 0;
-    margin-top: 0;
-    
+    margin-top: 0;   
 }
+
 #losses {
     color: white;
     font-size: 60px;
@@ -91,11 +83,10 @@ p {
     background-color: rgba(255, 160, 207, 0.5);
     padding-top: 10px;
     padding-bottom: 10px;
-    margin-top: 0;
-   
+    margin-top: 0;  
 }
-#winBox p{
-    
+
+#winBox p { 
     padding-top: 30px;
     padding-bottom: 30px;
     font-size: 50px;
@@ -103,12 +94,10 @@ p {
     line-height: 0;
     color: rgb(160, 252, 255);
     margin-top: -5px;
-    margin-bottom: -5px;
-    
-    
+    margin-bottom: -5px;    
 }
-#lossBox p{
-   
+
+#lossBox p {
     padding-top: 30px;
     padding-bottom: 38px;
     font-size: 50px;
@@ -116,11 +105,10 @@ p {
     line-height: 0;
     color: rgb(255, 160, 207);
     margin-top: -6px;
-    margin-bottom: -6px;
-    
+    margin-bottom: -6px; 
 }
+
 #here {
     cursor: pointer;
-    color: rgb(70, 249, 255);
-    
+    color: rgb(70, 249, 255); 
 }
