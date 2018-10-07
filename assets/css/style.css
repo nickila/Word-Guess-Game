@@ -10,15 +10,15 @@ body {
 p {
     font-size: 40px;
     color: rgb(204, 255, 251);
-    margin-top: 0;
+    margin-top: 15px;
 }
 
 #title {
-    font-size: 160px;
-    margin-bottom: 0;
+    font-size: 200px;
+    margin-bottom: -20px;
     color: lime;
     letter-spacing: 3px;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
 
@@ -59,22 +59,68 @@ p {
     
 }
 #message {
-    margin-top: 20px;
-    
-    margin-bottom: 10px;
+    margin-top: 5px;
+    font-size: 70px;
+    margin-bottom: 15px;
+    color: rgb(160, 252, 255);
+}
+#message2 {
+    color: white;
 }
 
-button {
-    background-color: white;
-}
+
 #guesses {
+    font-size: 60px;
     color: rgb(255, 160, 207);
 }
 #wins {
-    color: rgb(255, 160, 207);
-    font-size: 25px;
+    color: white;
+    font-size: 60px;
+    letter-spacing: 10px;
+    background-color: rgba(160, 252, 255, 0.5);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 0;
+    margin-top: 0;
+    
 }
 #losses {
+    color: white;
+    font-size: 60px;
+    letter-spacing: 10px;
+    background-color: rgba(255, 160, 207, 0.5);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 0;
+   
+}
+#winBox p{
+    
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-size: 50px;
+    margin: 0;
+    line-height: 0;
+    color: rgb(160, 252, 255);
+    margin-top: -5px;
+    margin-bottom: -5px;
+    
+    
+}
+#lossBox p{
+   
+    padding-top: 30px;
+    padding-bottom: 38px;
+    font-size: 50px;
+    margin: 0;
+    line-height: 0;
     color: rgb(255, 160, 207);
-    font-size: 25px;
+    margin-top: -6px;
+    margin-bottom: -6px;
+    
+}
+#here {
+    cursor: pointer;
+    color: rgb(70, 249, 255);
+    
 }

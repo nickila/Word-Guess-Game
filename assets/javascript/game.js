@@ -1,7 +1,7 @@
 
 //var alphabet = "abcdefghijklmnopqrstuvwxyz"
 //var ifLetter = alphabet.charAt(9);
-//console.log(ifLetter);
+////console.log(ifLetter);
 //var letterX = 
 //set vars
 var guesses = 10;
@@ -12,13 +12,20 @@ var groupedLetters = "";
 
 // var hasEl = function(str, char) {
 //     for (var i = 0; i < str.length; i ++) {
-//         if (str[i] == char) {
+//         if (str[i] !== char) {
 //             return true;
 //         }
 //     }
 //     return false;
 // };
-//console.log(hasEl(groupedLetters, userGuess));
+//console.log("hasEl: " + hasEl(groupedLetters, userGuess));
+var x = document.getElementById("myAudio4"); 
+
+function playAudio() { 
+    x.play(); 
+} 
+
+
 
 
 
@@ -76,6 +83,7 @@ function wordGame() {
     clearBox();
     clearMessage2();
     document.getElementById("guesses").innerHTML = "GUESS: " + guesses;
+    var groupedLetters = "";
 
 
     //2. Randomly choose one of those words.
@@ -92,17 +100,17 @@ function wordGame() {
     var wordLetter5 = randomWord.charAt(5);
 
     var wordLength = randomWord.length;
-    console.log(wordLength);
+    //console.log(wordLength);
 
     //var dash = " _ ";
-    //console.log
+    ////console.log
 
     //4. Tell player to choose a letter.
 
-    var html =
-        "<p>Guess a letter...</p>";
+    // var html =
+    //     "<p>Guess a letter...</p>";
 
-    document.getElementById("message").innerHTML = html;
+    document.getElementById("message").innerHTML = "Guess a letter...";
     //5. Display an empty underline dash for each letter where the letters will be in html.
 
     if (wordLength === 6) {
@@ -136,8 +144,8 @@ function wordGame() {
 
         var userGuess = event.key;
         var userGuess = (userGuess.toLowerCase());
-        console.log(userGuess);
-        groupedLetters = groupedLetters + userGuess;
+        //console.log(userGuess);
+       // groupedLetters = groupedLetters + userGuess;
 
         // var hasEl = function(str, char) {
         //     for (var i = 0; i < str.length; i ++) {
@@ -147,25 +155,28 @@ function wordGame() {
         //     }
         //     return false;
         // };
-        // console.log(hasEl(groupedLetters, userGuess));
+        // //console.log(hasEl(groupedLetters, userGuess));
 
 
 
 
 
-        console.log("GL" + groupedLetters);
+        //console.log("GL" + groupedLetters);
         var usedOnes = groupedLetters.search(userGuess);
-        console.log("usedOnes: " + usedOnes);
+        //console.log("usedOnes: " + usedOnes);
         //var letter = (userGuess);
+        console.log("usedOnes: " + usedOnes);
 
         var alphabet = "abcdefghijklmnopqrstuvwxyz";
         var checkLetter = alphabet.search(userGuess);
+        //console.log("hasEl: " + hasEl(groupedLetters, userGuess));
+        console.log("new: " + groupedLetters.indexOf(userGuess))
 
-        console.log("checkLetter: " + checkLetter);
+        //console.log("checkLetter: " + checkLetter);
 
 
 
-        //console.log("NUMBER: " + groupedLetters.length);
+        ////console.log("NUMBER: " + groupedLetters.length);
 
 
 
@@ -178,7 +189,6 @@ function wordGame() {
         //keep doing the thing below OR maybe try doing an if statement with each letter0-5 and say if they don't
         //all equal &nbsp then 'you win'
         if ((userGuess == wordLetter0) && (document.getElementById("letter0").innerHTML == "<u>&nbsp;</u>")) {
-
             document.getElementById("letter0").innerHTML = userGuess;
             document.getElementById("message").innerHTML = "There you go..."
             document.getElementById("letter0").style.color = "turquoise";
@@ -186,54 +196,51 @@ function wordGame() {
 
         }
         if ((userGuess == wordLetter1) && (document.getElementById("letter1").innerHTML == "<u>&nbsp;</u>")) {
-
             document.getElementById("letter1").innerHTML = userGuess;
             document.getElementById("message").innerHTML = "Now you're getting it...";
             document.getElementById("letter1").style.color = "turquoise";
             point++;
         }
         if ((userGuess == wordLetter2) && (document.getElementById("letter2").innerHTML == "<u>&nbsp;</u>")) {
-
+              
             document.getElementById("letter2").innerHTML = userGuess;
             document.getElementById("message").innerHTML = "That one was tuff..."
             document.getElementById("letter2").style.color = "turquoise";
             point++;
         }
         if ((userGuess == wordLetter3) && (document.getElementById("letter3").innerHTML == "<u>&nbsp;</u>")) {
-
             document.getElementById("letter3").innerHTML = userGuess;
             document.getElementById("message").innerHTML = "You're doing it..."
             document.getElementById("letter3").style.color = "turquoise";
             point++;
         }
         if ((userGuess == wordLetter4) && (document.getElementById("letter4").innerHTML == "<u>&nbsp;</u>")) {
-
             document.getElementById("letter4").innerHTML = userGuess;
             document.getElementById("message").innerHTML = "Way to go..."
             document.getElementById("letter4").style.color = "turquoise";
             point++;
         }
         if ((userGuess == wordLetter5) && (document.getElementById("letter5").innerHTML == "<u>&nbsp;</u>")) {
-
             document.getElementById("letter5").innerHTML = userGuess;
             document.getElementById("message").innerHTML = "Woah! Slow down..."
             document.getElementById("letter5").style.color = "turquoise";
             point++;
         }
-        console.log("points=" + point);
+        //console.log("points=" + point);
         if (point === randomWord.length) {
             point++;
             document.getElementById("message").innerHTML = "YOU WIN!!!";
-            console.log("you win!!!!!");
+            playAudio();
+            //console.log("you win!!!!!");
             wins++;
             if (wins < 9) {
-                document.getElementById("wins").innerHTML = "WIN:0" + wins;
+                document.getElementById("wins").innerHTML = "0" + wins;
             } else {
-                document.getElementById("wins").innerHTML = "WIN:" + wins;
+                document.getElementById("wins").innerHTML = wins;
             }
 
-            document.getElementById("message2").innerHTML = "Click here to play again...";
-            document.getElementById("spanString").style.marginTop = "160px";
+            document.getElementById("message2").innerHTML = "Click <span id='here' onclick='wordGame()';>HERE</span> to play again...";
+            document.getElementById("spanString").style.marginTop = "145px";
 
 
 
@@ -283,14 +290,15 @@ function wordGame() {
                         && (userGuess !== wordLetter3)
                         && (userGuess !== wordLetter4)
                         && (userGuess !== wordLetter5)
+                        && (groupedLetters.indexOf(userGuess) == -1)
                         //&& (userGuess !== groupedLetters)
                         && (userGuess !== groupedLetters.indexOf())
                         //&& (userGuess !== "wrongBoxL LI")
                         && (userGuess != str1)) {
-                           // console.log("hasEl:" + hasEl(groupedLetters, userGuess));
+                           // //console.log("hasEl:" + hasEl(groupedLetters, userGuess));
                         // Div containing what happens when a wrong choice is submitted.
                         var usedLetter = str1.concat(userGuess);
-                        console.log("usedLetter=" + usedLetter);
+                        //console.log("usedLetter=" + usedLetter);
                         document.getElementById("message").innerHTML = "Nope. Try again...";
                         var node = document.createElement("LI");                 // Create a <li> node
                         var textnode = document.createTextNode(userGuess);         // Create a text node
@@ -299,13 +307,14 @@ function wordGame() {
                         document.getElementById("guesses").innerHTML = "GUESS: 0" + (guesses - 1);
                         //8. Also, if letter does not equal any from the string, minus one point (or add a mark).
                         guesses--;
-                        
+                        groupedLetters = groupedLetters + userGuess;
                         //var str = document.getElementById("wordBoxL").innerHTML();
-                        //console.log(str);
+                        ////console.log(str);
                         //put wrong letters into span
                         //9. After 6 wrong guesses, player loses. Reveal word and 'Game Over'.
                         if (guesses === 0) {
-                            document.getElementById("title").innerHTML = "GAME OVER";
+                            //document.getElementById("title").innerHTML = "GAME OVER";
+                            
                             document.getElementById("message").innerHTML = "You lost...";
                             document.getElementById("letter0").innerHTML = wordLetter0;
                             document.getElementById("letter1").innerHTML = wordLetter1;
@@ -317,13 +326,13 @@ function wordGame() {
                             document.getElementById("spanString").style.color = "turquoise";
                             losses++;
                             if (losses < 10) {
-                                document.getElementById("losses").innerHTML = " LOSS:0" + losses;
+                                document.getElementById("losses").innerHTML = "0" + losses;
 
                             } else {
-                                document.getElementById("losses").innerHTML = " LOSS:" + losses;
+                                document.getElementById("losses").innerHTML = losses;
                             }
-                            document.getElementById("message2").innerHTML = "Click here to play again...";
-                            document.getElementById("spanString").style.marginTop = "160px";
+                            document.getElementById("message2").innerHTML = "Click <span id='here' onclick='wordGame()';>HERE</span> to play again...";
+                            document.getElementById("spanString").style.marginTop = "145px";
                             
                             // wordGame()
                             return;
